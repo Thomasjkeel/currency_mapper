@@ -24,6 +24,7 @@ function getColor(d) {
         d > 0.1 ? '#ffe296' :
         d > 0.01 ? '#ffefc4' :
         d > 0.001 ? '#fff7e2' :
+        d > 0.00001 ? '#f9f7ef' :
         '#d3d1c6';
 }
 
