@@ -2,4 +2,5 @@
 
 Work for Digitial Visualisation CourseWork 1
 
-![](currency_mapper/Examples/example.png)
+![Figure 1.](https://github.com/Thomasjkeel/currency_mapper/blob/master/Examples/example.png)
+
