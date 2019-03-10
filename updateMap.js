@@ -98,16 +98,17 @@ info.update = function (props) {
 legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [NaN, 0.001, 0.01, 0.1, 0.5, 1, 2, 5, 10, 100, 1000, 10000];
+    // loop through the grades
+        grades = [NaN, 0.00001, 0.001, 0.01, 0.1, 0.5, 1, 2, 5, 10, 100, 1000, 10000];
 
     div.innerHTML += '<b>Currency Value</b><br>'
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
         // Make the first value No Data Avaialble
         if (i == 0) {
-            div.innerHTML += '<i style="background:' + getColor(grades[i] + 0.000001) + '"></i> ' + "No Data Available" + '<br>';
+            div.innerHTML += '<i style="background:' + getColor(grades[i] + 0.0000001) + '"></i> ' + "No Data Available" + '<br>';
         } else {
-        div.innerHTML += '<i style="background:' + getColor(grades[i]+0.000001) + '"></i> ' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        div.innerHTML += '<i style="background:' + getColor(grades[i]+0.0000001) + '"></i> ' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
         }
     }
     return div;
