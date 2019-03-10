@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment 1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" integrity="sha512- wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js" integrity="sha512-
+                mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA== "
+        crossorigin=""></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="getCurrencyFromApi.js"></script>
+    <script src="updateMap.js"></script>
+    <script src="countries.js"></script>
+    </script>
+    <!-- <button onclick="updateCurrencieslayer()">Change Currency</button> -->
+
+</head>
+
+<body>
+    <table id="maintable">
+        <tr>
+            <th>My</th>
+            <th>Table</th>
+        </tr>
+
+    </table>
+
+    <div id="mapid"></div>
+
+    <script>
+        var mymap = L.map('mapid').setView([51.505, -0.09], 3);
+        mymap.options.minZoom = 2;
+        mymap.options.maxZoom = 8;
+
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>'
+        }).addTo(mymap);
+
+
+        countriesjs = new L.geoJson(countries, {
+            onEachFeature: onEachFeature,
+            style: style
+		    }).addTo(mymap);
+        mymap.setMaxBounds(countriesjs.getBounds());
+
+        
+        // var popup = L.popup();
+        // function onMapClick(e) {
+        //     popup.setLatLng(e.latlng).setContent("Country = " + e.feature.properties.ISO_A3.toString()).openOn(mymap);
+        // }
+        // mymap.on('click', onMapClick);
+        info.addTo(mymap);
+
+    </script>
+
+    <script>
+        // check that mymap is loaded first using this listener
+        document.addEventListener('DOMContentLoaded', function () {
+            getCurrencies(currentCurrency);
+            console.log(countries);
+        }, false);
+    </script>
+
+</body>
+
+</html>
+
