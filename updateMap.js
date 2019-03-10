@@ -92,7 +92,7 @@ info.onAdd = function(map) {
 info.update = function (props) {
     this._div.innerHTML = '<h4>Live Currency Comparison</h4>' + (props ?
         '<b>' + props.ADMIN + '</b><br /> Currency = ' + props.currency + '</b><br />' + '1 ' + currentCurrency + '= ' + props.value + ' ' + props.currency:
-        '<b> Current Base Currency = ' + currentCurrency + '</b> <br>Hover over a country</br>');
+        '<b> Current Base Currency = ' + currentCurrency + '</b> <br>Hover over a country to compare</br>');
 };
 
 legend.onAdd = function(map) {
