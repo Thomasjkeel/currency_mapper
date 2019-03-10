@@ -1,5 +1,5 @@
-# Currency Mapper using the FIXER.io
+# Currency Mapper using the FIXER.io currency API
 
-Digitial Visualisation CourseWork 1
+Work for Digitial Visualisation CourseWork 1
 
-![](/Examples/example_map.png)
+![](Examples/example_map.png)
