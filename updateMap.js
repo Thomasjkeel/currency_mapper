@@ -60,7 +60,7 @@ function resetHighlight(e) {
     info.update(); 
 }
 
-// sets the currency to pass to the API request (in getCurrencyFromApi.js) which will update the when a country has been clicked
+// sets the currency code to pass to the API request (in getCurrencyFromApi.js) which will update the when a country has been clicked
 function setCurrency(e) {
     currentCurrency = e.target.feature.properties.currency;
     console.log(currentCurrency);
@@ -89,9 +89,9 @@ info.onAdd = function(map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>World Currency Comparer</h4>' + (props ?
-        '<b> Country = ' + props.ADMIN + '</b><br />' + props.currency + '</b><br />' + "1 " + currentCurrency + "= " + props.value :
-        'Hover over a country');
+    this._div.innerHTML = '<h4>Live Currency Comparison</h4>' + (props ?
+        '<b>' + props.ADMIN + '</b><br /> Currency = ' + props.currency + '</b><br />' + '1 ' + currentCurrency + '= ' + props.value + ' ' + props.currency:
+        '<b> Current Base Currency = ' + currentCurrency + '</b> <br>Hover over a country</br>');
 };
 
 legend.onAdd = function(map) {

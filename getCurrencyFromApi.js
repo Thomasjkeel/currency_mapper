@@ -17,7 +17,7 @@ function getCurrencies(baseCurrency) {
      }
 
      client = new XMLHttpRequest();
-     // make client request
+     // make client request from FIXER.IO Live Currency API
      var url = 'http://data.fixer.io/api/latest' + '?access_key=' + access_key + '&base=' + baseCurrency;
      client.open('GET', url);
      client.onreadystatechange = currenciesResponse; // runs the response function
@@ -47,7 +47,7 @@ countries[0].features.forEach(function (country) {
 });
 // loop through all the currencies and update the 'value' property on the GeoJSON layer for each country
     for (var curr in allCurrencies.rates) {
-    setCurrencyValue(curr, allCurrencies.rates[curr])
+        setCurrencyValue(curr, allCurrencies.rates[curr])
     }
     // remove previous country GeoJSON layer
     if (countriesjs) {

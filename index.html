@@ -17,9 +17,10 @@
     <script>
         /* Initialise leaflet map, tilelayer and GeoJSON file */
         var mymap = L.map('mapid').setView([31.505, -0.09], 2);
-        mymap.options.minZoom = 2;
+        // set some base map properties
+        mymap.options.minZoom = 2; 
         mymap.options.maxZoom = 8;
-        mymap.doubleClickZoom.disable();
+        mymap.doubleClickZoom.disable(); // disable double click zoom (as double click is used to rebound the map to a country in updateMap.js)
 
 
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -44,7 +45,10 @@
             legend.addTo(mymap); // add the legend
         }, false);
     </script>
-
+    <div style="position: fixed; bottom: 20px;">
+        Notes: Click over country to change the base currency, double click to zoom to a country's extent. <br> May take a few moments to load map layer. Data Source: <a href=https://fixer.io/>Fixer.io</br>
+    </div>
+    
 </body>
 
 </html>
