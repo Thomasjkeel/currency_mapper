@@ -41,10 +41,10 @@ function resetHighlight(e) {
 }
 
 function setCurrency(e) {
-    // mymap.fitBounds(e.target.getBounds());
     currentCurrency = e.target.feature.properties.currency;
     console.log(currentCurrency);
-    getCurrencies(currentCurrency);
+    getCurrencies(currentCurrency)
+    // highlightFeature(e);
 }
 
 function zoomToFeature(e) {
@@ -73,7 +73,7 @@ info.onAdd = function (map) {
 info.update = function (props) {
     this._div.innerHTML = '<h4>World Currency Comparer</h4>' + (props ?
         '<b> Country = ' + props.ADMIN + '</b><br />' + props.currency + '</b><br />' + "1 " + currentCurrency + "= " + props.value :
-        'Hover over a state');
+        'Hover over a country');
 };
 
 
@@ -84,9 +84,9 @@ var legend = L.control({
 legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [NaN, 0.001, 0.01, 0.1, 1, 10, 100, 1000],
-        labels = ["Not Available"];
+        grades = [NaN, 0.001, 0.01, 0.1, 1, 10, 100, 1000];
 
+    div.innerHTML += '<b>Currency Value</b><br>'
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
         // Make the first value No Data Avaialble
