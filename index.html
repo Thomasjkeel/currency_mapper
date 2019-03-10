@@ -20,18 +20,10 @@
 </head>
 
 <body>
-    <table id="maintable">
-        <tr>
-            <th>My</th>
-            <th>Table</th>
-        </tr>
-
-    </table>
-
     <div id="mapid"></div>
 
     <script>
-        var mymap = L.map('mapid').setView([51.505, -0.09], 3);
+        var mymap = L.map('mapid').setView([31.505, -0.09], 2);
         mymap.options.minZoom = 2;
         mymap.options.maxZoom = 8;
 
@@ -47,13 +39,6 @@
             style: style
 		    }).addTo(mymap);
         mymap.setMaxBounds(countriesjs.getBounds());
-
-        
-        // var popup = L.popup();
-        // function onMapClick(e) {
-        //     popup.setLatLng(e.latlng).setContent("Country = " + e.feature.properties.ISO_A3.toString()).openOn(mymap);
-        // }
-        // mymap.on('click', onMapClick);
         info.addTo(mymap);
 
     </script>
@@ -61,8 +46,8 @@
     <script>
         // check that mymap is loaded first using this listener
         document.addEventListener('DOMContentLoaded', function () {
-            getCurrencies(currentCurrency);
-            console.log(countries);
+            getCurrencies(baseCurrency);
+            // legend.addTo(mymap);
         }, false);
     </script>
 
