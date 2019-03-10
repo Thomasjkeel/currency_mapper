@@ -38,7 +38,8 @@
             style: style
 		    }).addTo(mymap);
         mymap.setMaxBounds(countriesjs.getBounds());
-        info.addTo(mymap);
+        
+        
 
     </script>
 
@@ -46,8 +47,10 @@
         // check that mymap is loaded first using this listener
         document.addEventListener('DOMContentLoaded', function () {
             getCurrencies(baseCurrency);
+            info.addTo(mymap);
+            legend.addTo(mymap); // add legend
         }, false);
-        legend.addTo(mymap);
+        
     </script>
 
 </body>

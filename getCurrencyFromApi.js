@@ -5,7 +5,7 @@ var endpoint = "latest";
 var allCurrencies; // stores the currency response
 var baseCurrency = "GBP";
 var lastCurrency = "EUR";
-var currentCurrency = "EUR";
+var currentCurrency = "GBP";
 
  function getCurrencies(baseCurrency) {
      if (lastCurrency == baseCurrency){
@@ -32,7 +32,6 @@ var currentCurrency = "EUR";
      }
  }
  
-
   // convert the received data - which is text - to JSON format and add it to the map
  function loadCurrencieslayer(currenciesData) {
      // parse the response to JSON
@@ -42,7 +41,7 @@ var currentCurrency = "EUR";
 
  function updateCurrencieslayer(allCurrencies) {
     countries[0].features.forEach(function (country) {
-        country.properties.value = "Not Available";
+        country.properties.value = "Data Not Available";
     });
 
      for (var curr in allCurrencies.rates) {
