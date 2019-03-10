@@ -2,4 +2,4 @@
 
 Work for Digitial Visualisation CourseWork 1
 
-![](Examples/example_map.png)
+![](currency_mapper/Examples/example.png)
