@@ -7,14 +7,6 @@ body {
     height: 600px;
 }
 
-/* #maintable {
-
-} */
-
-table {
-    border-collapse: collapse;
-}
-
 table,
 th,
 td {

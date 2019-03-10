@@ -5,7 +5,7 @@ var endpoint = "latest";
 var allCurrencies; // stores the currency response
 var baseCurrency = "GBP";
 var lastCurrency = "EUR";
-var currentCurrency;
+var currentCurrency = "EUR";
 
  function getCurrencies(baseCurrency) {
      if (lastCurrency == baseCurrency){
@@ -42,7 +42,7 @@ var currentCurrency;
 
  function updateCurrencieslayer(allCurrencies) {
     countries[0].features.forEach(function (country) {
-        country.properties.value = NaN;
+        country.properties.value = "Not Available";
     });
 
      for (var curr in allCurrencies.rates) {
@@ -61,16 +61,10 @@ var currentCurrency;
 
  function setCurrencyValue(id, currencyValue) {
     // loop through and update the values of the GeoJSON
-    var returned = false
     countries[0].features.forEach(function (country) {
         if (country.properties.currency == id) {
             country.properties.value = currencyValue;
-            returned = true;
-            return true;
+            return;
         }
-    });
-    // give a default value
-    if (!returned) {
-        return false
-    }       
+    });    
 }

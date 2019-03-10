@@ -8,10 +8,11 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>US Population Density</h4>' + (props ?
-        '<b>' + props.ADMIN + '</b><br />' + props.ADMIN + ' people / mi<sup>2</sup>' :
+    this._div.innerHTML = '<h4>World Currency Comparer</h4>' + (props ?
+        '<b> Country = ' + props.ADMIN + '</b><br />' + props.currency + '</b><br />' + "1 " + currentCurrency + "= "+ props.value:
         'Hover over a state');
 };
+
 
 function getColor(d) {
     return d > 1000 ? '#800026' :
@@ -47,7 +48,7 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
-    info.update(layer.feature.properties.rates);
+    info.update(layer.feature.properties);
 }
 
 function resetHighlight(e) {
@@ -57,7 +58,6 @@ function resetHighlight(e) {
 
 function zoomToFeature(e) {
     // mymap.fitBounds(e.target.getBounds());
-    // console.log(e.target.feature.properties);
     currentCurrency = e.target.feature.properties.currency;
     console.log(currentCurrency);
     getCurrencies(currentCurrency);
@@ -70,7 +70,6 @@ function onEachFeature(feature, layer) {
         click: zoomToFeature
     });
 }
-
 
 
 // var legend = L.control({
