@@ -2,4 +2,4 @@
 
 Digitial Visualisation CourseWork 1
 
-[!Examples/example_map.png]
+[!/Examples/example_map.png]
