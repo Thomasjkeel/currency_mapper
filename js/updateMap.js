@@ -39,7 +39,7 @@ function onEachFeature(feature, layer) {
     });
 }
 
-// highlights a country that is hovered over
+// listener that highlights a country that is hovered over
 function highlightFeature(e) {
     var layer = e.target;
 
@@ -56,6 +56,7 @@ function highlightFeature(e) {
     info.update(layer.feature.properties);
 }
 
+// event listener for resetting highlight of country
 function resetHighlight(e) {
     countriesjs.resetStyle(e.target);
     info.update(); 
@@ -113,4 +114,3 @@ legend.onAdd = function(map) {
     }
     return div;
 };
-
